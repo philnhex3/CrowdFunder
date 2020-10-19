@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CampaignActivity">
+
+
+    <ImageView
+        android:id="@+id/campaignHeaderImg"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campaignHeaderImg" />
+
+    <ImageView
+        android:id="@+id/campaignProfileImg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/campaign_title"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/campaignOwnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/campaignProfileImg"
+        app:layout_constraintStart_toEndOf="@+id/campaignProfileImg"
+        app:layout_constraintTop_toTopOf="@+id/campaignProfileImg" />
+
+    <TextView
+        android:id="@+id/campaign_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/campaignDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/campaignProfileImg"
+        app:layout_constraintTop_toBottomOf="@+id/locationTV" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/donate_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:backgroundTint="@color/colorDonate"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_money_24"
+        android:text="DONATE"/>
+
+    <ImageView
+        android:id="@+id/campaignLocationIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/campaignProfileImg"
+        app:layout_constraintTop_toBottomOf="@+id/campaignProfileImg"
+        app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+    <TextView
+        android:id="@+id/locationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/campaignLocationIcon"
+        app:layout_constraintTop_toTopOf="@+id/campaignLocationIcon" />
+</androidx.constraintlayout.widget.ConstraintLayout>
