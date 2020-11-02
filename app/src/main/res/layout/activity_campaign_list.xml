@@ -6,21 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".CampaignListActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"/>
-
     <include
-        android:id="@+id/include"
-        layout="@layout/content_campaign_list" />
+        android:id="@+id/menu_toolbar"
+        layout="@layout/menu_toolbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_campaigns"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="750dp"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="center"
-        tools:listitem="@layout/item_campaign" />
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/content_campaign_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="55dp"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@color/colorWhite"
+            android:elevation="2dp"
+            app:itemIconSize="24dp"
+            app:menu="@menu/menu_bottom_nav" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:tint="@color/colorWhite"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_anchor="@+id/relativeLayout"
+        app:layout_anchorGravity="right|bottom"
+        app:layout_insetEdge="bottom"
+        app:srcCompat="@drawable/ic_baseline_post_add_24" />
+
+
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

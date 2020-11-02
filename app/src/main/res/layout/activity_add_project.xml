@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".AddProject"
+    tools:deviceIds="wear">
+
+    <ImageView
+        android:id="@+id/add_project_img"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_cloud_upload_24"
+        tools:srcCompat="@drawable/ic_baseline_cloud_upload_24" />
+
+    <TextView
+        android:id="@+id/label_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:text="Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_project_img" />
+
+    <TextView
+        android:id="@+id/label_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Location"
+        app:layout_constraintStart_toStartOf="@+id/addProject_titleET"
+        app:layout_constraintTop_toBottomOf="@+id/addProject_titleET" />
+
+    <TextView
+        android:id="@+id/label_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Target ($)"
+        app:layout_constraintStart_toStartOf="@+id/addProject_locationET"
+        app:layout_constraintTop_toBottomOf="@+id/addProject_locationET" />
+
+    <TextView
+        android:id="@+id/label_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Description"
+        app:layout_constraintStart_toStartOf="@+id/addProject_targetET"
+        app:layout_constraintTop_toBottomOf="@+id/addProject_targetET" />
+
+    <EditText
+        android:id="@+id/addProject_titleET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/label_Title"
+        app:layout_constraintTop_toBottomOf="@+id/label_Title" />
+
+    <EditText
+        android:id="@+id/addProject_locationET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/addProject_titleET"
+        app:layout_constraintStart_toStartOf="@+id/label_location"
+        app:layout_constraintTop_toBottomOf="@+id/label_location" />
+
+    <EditText
+        android:id="@+id/addProject_descriptionET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/addProject_targetET"
+        app:layout_constraintStart_toStartOf="@+id/label_description"
+        app:layout_constraintTop_toBottomOf="@+id/label_description" />
+
+    <EditText
+        android:id="@+id/addProject_targetET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/addProject_locationET"
+        app:layout_constraintStart_toStartOf="@+id/label_target"
+        app:layout_constraintTop_toBottomOf="@+id/label_target" />
+
+    <Button
+        android:id="@+id/button_post_project"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Post Project"
+        app:layout_constraintEnd_toEndOf="@+id/addProject_descriptionET"
+        app:layout_constraintStart_toStartOf="@+id/addProject_descriptionET"
+        app:layout_constraintTop_toBottomOf="@+id/addProject_descriptionET" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

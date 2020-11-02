@@ -26,7 +26,7 @@
 
             <ImageView
                 android:id="@+id/cardImage"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="194dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardImage" />
 
             <ProgressBar
-                android:id="@+id/progressBar2"
+                android:id="@+id/list_item_progress_bar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
@@ -66,9 +66,9 @@
                 android:backgroundTint="@color/colorDonate"
                 android:text="Support This Project"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/progressBar2"
-                app:layout_constraintStart_toStartOf="@+id/progressBar2"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
+                app:layout_constraintEnd_toEndOf="@+id/list_item_progress_bar"
+                app:layout_constraintStart_toStartOf="@+id/list_item_progress_bar"
+                app:layout_constraintTop_toBottomOf="@+id/list_item_progress_bar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

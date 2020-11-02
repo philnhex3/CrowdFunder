@@ -16,7 +16,8 @@ data class Campaign (
     val body : String,
     val target : Long,
     var raised : Long = 0L,
-    var ownerId: String = "0"
+    var ownerId: String = "0",
+    var img : String = ""
 ) : Parcelable {
 
     companion object {
@@ -28,7 +29,9 @@ data class Campaign (
                 val target = getLong("target")!!
                 val raised = getLong("raised")!!
                 val ownerId = getString("owner_id")!!
-                return Campaign(id, title, location, body, target, raised, ownerId)
+                val img = getString("img")!!
+                val campaign = Campaign(id, title, location, body, target, raised, ownerId, img)
+                return campaign
             } catch (e: Exception) {
                 Log.e(TAG, "Error converting campaign", e)
                 FirebaseCrashlytics.getInstance().log("Error converting campaign data")

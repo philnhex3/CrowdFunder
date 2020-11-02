@@ -9,14 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DonateActivity"></activity>
+        <activity android:name=".EditProfileActivity" />
+        <activity
+            android:name=".UserProfileActivity"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddProject"
+            android:label="@string/title_activity_add_project"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CampaignListActivity"
-            android:label="@string/title_activity_campaign_list"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".CampaignActivity">
-
-        </activity>
+            android:label="@string/title_activity_campaign_list" />
+        <activity android:name=".CampaignActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -19,7 +19,7 @@
         android:id="@+id/button_sign_up_cancel"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Cancel"
+        android:text="I already have an account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,15 +30,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="48dp"
         android:ems="10"
+        android:focusable="auto"
         android:hint="Full Name"
         android:inputType="textPersonName"
-        android:text=" "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/signUp_uploadImageText" />
 
     <EditText
         android:id="@+id/signUp_email"
@@ -68,10 +68,31 @@
         android:id="@+id/signUp_buttonSignUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="56dp"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="@+id/signUp_password"
         app:layout_constraintStart_toStartOf="@+id/signUp_password"
         app:layout_constraintTop_toBottomOf="@+id/signUp_password" />
+
+    <ImageView
+        android:id="@+id/profile_img_upload"
+        android:layout_width="190dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/ic_baseline_cloud_upload_24"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signUp_uploadImageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="@+id/profile_img_upload"
+        app:layout_constraintStart_toStartOf="@+id/profile_img_upload"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img_upload" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
