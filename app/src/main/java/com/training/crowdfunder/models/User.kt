@@ -1,4 +1,4 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.models
 
 import android.os.Parcelable
 import android.util.Log

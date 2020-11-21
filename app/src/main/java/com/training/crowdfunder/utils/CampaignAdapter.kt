@@ -1,4 +1,4 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.utils
 
 import android.content.Context
 import android.content.Intent
@@ -9,10 +9,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
+import com.training.crowdfunder.R
+import com.training.crowdfunder.models.Campaign
+import com.training.crowdfunder.ui.CampaignActivity
+import com.training.crowdfunder.ui.DonateActivity
 
 class   CampaignAdapter(
     private val context: Context

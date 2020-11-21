@@ -1,10 +1,9 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.Window
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -13,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.training.crowdfunder.utils.CampaignAdapter
+import com.training.crowdfunder.R
 import com.training.crowdfunder.viewmodels.CampaignListViewModel
 import kotlinx.android.synthetic.main.activity_campaign_list.*
 
@@ -69,7 +70,7 @@ class CampaignListActivity : AppCompatActivity() {
         }
 
         addPostFab.setOnClickListener {
-            val intent = Intent(this, AddProject::class.java)
+            val intent = Intent(this, AddProjectActivity::class.java)
             startActivity(intent)
         }
     }

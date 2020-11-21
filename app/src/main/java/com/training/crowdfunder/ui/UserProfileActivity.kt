@@ -1,4 +1,4 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -9,15 +9,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
+import com.training.crowdfunder.R
+import com.training.crowdfunder.models.User
 import com.training.crowdfunder.viewmodels.UserProfileViewModel
 import com.training.crowdfunder.viewmodels.UserViewModelFactory
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class UserProfileActivity : AppCompatActivity() {
 
     lateinit var fullNameTV: TextView
     lateinit var emailTV: TextView
-    lateinit var profileImg: ImageView
+    lateinit var profileImg: CircleImageView
 
     @ExperimentalCoroutinesApi
     private lateinit var userViewModel: UserProfileViewModel
@@ -46,7 +49,7 @@ class UserProfileActivity : AppCompatActivity() {
 
         fullNameTV = findViewById<TextView>(R.id.user_profile_name)
         emailTV = findViewById<TextView>(R.id.user_profile_emailTV)
-        profileImg = findViewById<ImageView>(R.id.user_profile_img)
+        profileImg = findViewById<CircleImageView>(R.id.user_profile_img)
 
         userViewModel.user.observe(this, Observer<User> { user ->
             fullNameTV.text = user.fullName

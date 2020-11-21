@@ -1,8 +1,7 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.models
 
 import android.os.Parcelable
 import android.util.Log
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.android.parcel.Parcelize

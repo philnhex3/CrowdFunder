@@ -1,19 +1,24 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.training.crowdfunder.User.Companion.toUser
+import com.training.crowdfunder.models.Campaign
+import com.training.crowdfunder.R
+import com.training.crowdfunder.models.User.Companion.toUser
 import com.training.crowdfunder.viewmodels.CampaignViewModel
 import com.training.crowdfunder.viewmodels.MyViewModelFactory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -68,6 +73,9 @@ class CampaignActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBarCampaignView)
         targetTV = findViewById(R.id.campaign_target_amount)
         raisedTV = findViewById(R.id.campaign_raised_amount)
+
+//        val draw = AppCompatResources.getDrawable(this, R.drawable.custom_progressbar)
+//        progressBar.progressDrawable = draw
 
         campaignViewModel.campaign.observe(this, Observer<Campaign> { campaign ->
             titleTV.text = campaign.title

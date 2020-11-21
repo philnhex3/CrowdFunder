@@ -1,9 +1,10 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,15 +13,14 @@ import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
-import com.google.firebase.storage.ktx.storage
+import com.training.crowdfunder.R
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -38,7 +38,7 @@ class SignUpFragment : Fragment() {
     private lateinit var passwordET : EditText
     private lateinit var signUpBtn : Button
     private lateinit var cancelBtn : Button
-    private lateinit var profileImg : ImageView
+    private lateinit var profileImg : CircleImageView
     private lateinit var uploadText : TextView
 
     private  var file_uri : Uri? = null
@@ -82,35 +82,40 @@ class SignUpFragment : Fragment() {
             val _email = emailET.text.toString()
             val _password = passwordET.text.toString()
 
+            if(TextUtils.isEmpty(_name) || TextUtils.isEmpty(_email) ||
+                TextUtils.isEmpty(_password)) {
+                Toast.makeText(context, "Please fill in all the fields", Toast.LENGTH_LONG).show()
+            } else {
+                auth.createUserWithEmailAndPassword(_email, _password)
+                    .addOnCompleteListener(MainActivity(), OnCompleteListener { task ->
+                        if (task.isSuccessful){
+                            val user = auth.currentUser!!
+                            val uid = user.uid
+                            val image = user.photoUrl.toString()
 
-            auth.createUserWithEmailAndPassword(_email, _password)
-                .addOnCompleteListener(MainActivity(), OnCompleteListener {task ->
-                if (task.isSuccessful){
-                    val user = auth.currentUser!!
-                    val uid = user.uid
-                    val image = user.photoUrl.toString()
+                            val user_data = HashMap<String, Any>()
 
-                    val user_data = HashMap<String, Any>()
+                            user_data.put("full_name", _name)
+                            user_data.put("email", _email)
+                            user_data.put("profile_img", image)
+                            user_data.put("donated", 0L)
 
-                    user_data.put("full_name", _name)
-                    user_data.put("email", _email)
-                    user_data.put("profile_img", image)
-                    user_data.put("donated", 0L)
+                            val db = FirebaseFirestore.getInstance()
+                            val dbRef = db.collection("users")
+                            dbRef.document(uid).set(user_data)
 
-                    val db = FirebaseFirestore.getInstance()
-                    val dbRef = db.collection("users")
-                    dbRef.document(uid).set(user_data)
+                            uploadImageToFirebase(file_uri)
 
-                    uploadImageToFirebase(file_uri)
-
-                    Toast.makeText(context, "Successfully Registered", Toast.LENGTH_LONG).show()
-                    val intent = Intent(context, CampaignListActivity::class.java)
-                    startActivity(intent)
+                            Toast.makeText(context, "Successfully Registered", Toast.LENGTH_LONG).show()
+                            val intent = Intent(context, CampaignListActivity::class.java)
+                            startActivity(intent)
 //                    MainActivity().finish()
-                } else {
-                    Toast.makeText(context, "Registration Failed", Toast.LENGTH_LONG).show()
-                }
-            })
+                        } else {
+                            Toast.makeText(context, "Registration Failed", Toast.LENGTH_LONG).show()
+                        }
+                    })
+            }
+
         }
 
 

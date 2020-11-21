@@ -1,10 +1,8 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +12,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.training.crowdfunder.R
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -78,6 +75,12 @@ class SignInFragment : Fragment() {
                         val intent = Intent(context, CampaignListActivity::class.java)
                         startActivity(intent)
                         MainActivity().finish()
+                    }
+
+                    if(!task.isSuccessful){
+                        Toast.makeText(context, "Email and password combination incorrect, please try again",
+                            Toast.LENGTH_LONG).show()
+                        passwordEt.getText().clear()
                     }
                 })
             }

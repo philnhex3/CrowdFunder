@@ -1,15 +1,15 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.text.TextUtils
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
+import com.training.crowdfunder.models.Campaign
+import com.training.crowdfunder.R
 import com.training.crowdfunder.viewmodels.CampaignViewModel
 import com.training.crowdfunder.viewmodels.MyViewModelFactory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -69,10 +69,14 @@ class DonateActivity : AppCompatActivity() {
         })
 
         makeDonationBtn.setOnClickListener {
-            val amount = donationAmountEt.text.toString().toLong()
+            try {
+                val amount = donationAmountEt.text.toString().toLong()
+                campaignViewModel.donate(campaignId, amount, applicationContext)
+                onBackPressed()
+            } catch (e: NumberFormatException){
+                Toast.makeText(this, "Please enter an amount to donate", Toast.LENGTH_LONG).show()
+            }
 
-            campaignViewModel.donate(campaignId, amount, applicationContext)
-            onBackPressed()
         }
 
     }

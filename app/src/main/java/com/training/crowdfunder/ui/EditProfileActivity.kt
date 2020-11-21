@@ -1,7 +1,8 @@
-package com.training.crowdfunder
+package com.training.crowdfunder.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.training.crowdfunder.R
 
 class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

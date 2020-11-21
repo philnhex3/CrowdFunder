@@ -1,4 +1,4 @@
-package com.training.crowdfunder;
+package com.training.crowdfunder.utils;
 
 import android.content.Context;
 

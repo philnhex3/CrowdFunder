@@ -3,8 +3,8 @@ package com.training.crowdfunder.viewmodels
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.*
-import com.training.crowdfunder.Campaign
-import com.training.crowdfunder.FirebaseService
+import com.training.crowdfunder.models.Campaign
+import com.training.crowdfunder.data.FirebaseService
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

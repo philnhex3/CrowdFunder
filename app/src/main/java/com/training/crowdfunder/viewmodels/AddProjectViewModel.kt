@@ -2,9 +2,7 @@ package com.training.crowdfunder.viewmodels
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.training.crowdfunder.FirebaseService
-import kotlinx.coroutines.launch
+import com.training.crowdfunder.data.FirebaseService
 
 class AddProjectViewModel : ViewModel() {
 
